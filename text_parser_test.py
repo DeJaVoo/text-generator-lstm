@@ -16,8 +16,8 @@ def main():
     txt = open(txt_file_path).read()
     txt = txt.lower()
 
-    char_to_int, n_chars, n_vocab = parse(txt)
-
+    conversion_dic, n_chars, n_vocab = parse(txt)
+    char_to_int = conversion_dic["char_to_int"]
     print "Total Characters: ", n_chars
     print "Total Vocab: ", n_vocab
     print "Char To Int Dictionary: ", char_to_int
