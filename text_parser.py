@@ -2,6 +2,11 @@ number_of_args = 2
 
 
 def parse(txt):
+    """
+    Parses text document to vector representation
+    :param txt: txt file
+    :return: map for char to int and int to char, number of chars in text file, number of unique chars in text file
+    """
     # map unique chars to integers
     chars = sorted(list(set(txt)))
     char_to_int = dict((c, i) for i, c in enumerate(chars))
