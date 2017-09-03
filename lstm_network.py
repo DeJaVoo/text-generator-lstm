@@ -31,8 +31,12 @@ def main():
     X, y, dataX = prepare_dataset(100, txt, n_chars, char_to_int, n_vocab)
     # define the LSTM model
     model = Sequential()
-    model.add(LSTM(2, input_shape=(X.shape[1], X.shape[2])))
+    model.add(LSTM(512, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
     model.add(Dropout(0.2))
+    model.add(LSTM(512))
+	model.add(Dropout(0.2))
+	model.add(LSTM(512))
+	model.add(Dropout(0.2))
     model.add(Dense(y.shape[1], activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam')
     # define the checkpoint

@@ -36,10 +36,15 @@ def main():
     X, y, dataX = prepare_dataset(100, txt, n_chars, char_to_int, n_vocab)
     # define the LSTM model
     model = Sequential()
-    model.add(LSTM(2, input_shape=(X.shape[1], X.shape[2])))
+    model.add(LSTM(512, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
     model.add(Dropout(0.2))
+    model.add(LSTM(512))
+	model.add(Dropout(0.2))
+	model.add(LSTM(512))
+	model.add(Dropout(0.2))
     model.add(Dense(y.shape[1], activation='softmax'))
     # load the network weights
+    filename = "weights-improvement-01-2.4004-512x3.hdf5"
     model.load_weights(filename)
     model.compile(loss='categorical_crossentropy', optimizer='adam')
     # pick a random seed
