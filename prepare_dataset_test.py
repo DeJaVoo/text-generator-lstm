@@ -6,6 +6,10 @@ number_of_args = 2
 
 
 def main():
+    """
+    tests the prepare_dataset model
+    :return:
+    """
     # Check for expected number of Arguments
     if len(argv) != number_of_args:
         exit("Invalid number of arguments")

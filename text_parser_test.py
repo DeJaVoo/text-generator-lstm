@@ -5,6 +5,10 @@ number_of_args = 2
 
 
 def main():
+    """
+    Verifies that the text parser creates the conversion dictionary, receives the script and the text path as parameters
+    :return:
+    """
     # Check for expected number of Arguments
     if len(argv) != number_of_args:
         exit("Invalid number of arguments")
